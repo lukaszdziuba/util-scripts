@@ -1,6 +1,8 @@
 EXTENSION=png
 HEIGHT=100
 
+mkdir -p output
+
 for f in *.$EXTENSION; do
   f_output=output/$f
   # trim white margins
@@ -8,5 +10,5 @@ for f in *.$EXTENSION; do
   # convert white to transparent
   convert $f_output -transparent white $f_output
   # scale to height max (any dimension)
-  convert $f_output -resize x100 $f_output
+  convert $f_output -resize x$HEIGHT $f_output
 done
